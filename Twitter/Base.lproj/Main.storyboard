@@ -49,10 +49,10 @@
             </objects>
             <point key="canvasLocation" x="109.59999999999999" y="177.66116941529236"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Home-->
         <scene sceneID="dpd-Sn-M8k">
             <objects>
-                <tableViewController id="WlV-kE-EYv" sceneMemberID="viewController">
+                <tableViewController id="WlV-kE-EYv" customClass="HomeTableViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="JEo-uP-8kn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -72,7 +72,13 @@
                             <outlet property="delegate" destination="WlV-kE-EYv" id="vq2-aj-5Sr"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="xcx-oy-0rz"/>
+                    <navigationItem key="navigationItem" title="Home" id="xcx-oy-0rz">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="DjM-hJ-33h">
+                            <connections>
+                                <action selector="onLogout:" destination="WlV-kE-EYv" id="Ubb-z4-nsu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i7J-yZ-8SV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -85,6 +91,12 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cog-ra-AOx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.15934338479999999" green="0.72345398559999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" systemColor="linkColor"/>
+                        </textAttributes>
+                        <navigationBarAppearance key="standardAppearance"/>
+                        <navigationBarAppearance key="scrollEdgeAppearance"/>
                     </navigationBar>
                     <connections>
                         <segue destination="WlV-kE-EYv" kind="relationship" relationship="rootViewController" id="k0d-aK-sMK"/>
@@ -96,6 +108,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
