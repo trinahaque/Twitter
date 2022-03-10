@@ -12,6 +12,7 @@ class HomeTableViewController: UITableViewController {
     
     var tweetArray = [NSDictionary]()
     var numberOfTweet: Int!
+    let myRrefreshControl = UIRefreshControl()
     
     @IBAction func onLogout(_ sender: Any) {
         TwitterAPICaller.client?.logout()
@@ -22,10 +23,12 @@ class HomeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadTweet()
+        myRrefreshControl.addTarget(self, action: #selector(loadTweet), for: .valueChanged)
+        tableView.refreshControl = myRrefreshControl
 
     }
     
-    func loadTweet(){
+    @objc func loadTweet(){
         let myUrl = "https://api.twitter.com/1.1/statuses/home_timeline.json"
         let myParams = ["count": 10]
         
@@ -36,6 +39,8 @@ class HomeTableViewController: UITableViewController {
                 self.tweetArray.append(tweet)
             }
             self.tableView.reloadData()
+            self.myRrefreshControl.endRefreshing()
+            
         }, failure: { (Error) in
             print("Could not retrieve tweets :(")
         })
@@ -49,7 +54,7 @@ class HomeTableViewController: UITableViewController {
         cell.tweetContent.text = tweetArray[indexPath.row]["text"] as? String
     
         
-        let imageUrl = URL(string: (user["profile_image_urls_https"] as? String )!)
+        let imageUrl = URL(string: (user["profile_image_url_https"] as? String )!)
         let data = try? Data(contentsOf:imageUrl!)
         
         if let imageData = data {
