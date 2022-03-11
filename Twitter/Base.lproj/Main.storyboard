@@ -70,7 +70,6 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="98" id="0s5-DF-R8G"/>
                                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="65" id="B7q-iH-Zms"/>
-                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="120" id="IL1-J1-FgK"/>
                                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="70" id="Jdc-fC-qFM"/>
                                                 <constraint firstAttribute="height" relation="lessThanOrEqual" constant="70" id="LUZ-Hf-Rmt"/>
                                                 <constraint firstAttribute="height" constant="65" id="lWe-3E-kiD"/>
