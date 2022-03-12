@@ -25,7 +25,12 @@ class HomeTableViewController: UITableViewController {
         loadTweets()
         myRrefreshControl.addTarget(self, action: #selector(loadTweets), for: .valueChanged)
         tableView.refreshControl = myRrefreshControl
-
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        myRrefreshControl.addTarget(self, action: #selector(loadTweets), for: .valueChanged)
+//        tableView.refreshControl = myRrefreshControl
     }
     
     @objc func loadTweets(){
