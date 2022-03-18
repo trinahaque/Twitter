@@ -25,10 +25,13 @@ class HomeTableViewController: UITableViewController {
         loadTweets()
         myRrefreshControl.addTarget(self, action: #selector(loadTweets), for: .valueChanged)
         tableView.refreshControl = myRrefreshControl
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 150
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.loadTweets()
 //        myRrefreshControl.addTarget(self, action: #selector(loadTweets), for: .valueChanged)
 //        tableView.refreshControl = myRrefreshControl
     }
@@ -85,6 +88,8 @@ class HomeTableViewController: UITableViewController {
             cell.profileImageView.image = UIImage(data: imageData)
         }
         
+        cell.setFavorite(tweetArray[indexPath.row]["favorited"] as! Bool)
+        cell.tweetId = tweetArray[indexPath.row]["id"] as! Int
         return cell
     }
 
